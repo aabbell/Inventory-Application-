@@ -1,0 +1,21 @@
+<h1><%= title %></h1>
+  <!--   <%- include("partials/errors.ejs") %> -->
+    <form action="/create" method="post">
+        <label for="productName">Product Name: </label>
+        <input type="text" name="productName" id="productName" required>
+        <label for="productDescription">Product Description: </label>
+        <input type="text" name="productDescription" id="productDescription" required>
+        <label for="categoryName">Category Name: </label>
+        <input type="text" name="categoryName" id="categoryName" required>
+        <label for="sizeName">Size Name: </label>
+        <input type="text" name="sizeName" id="sizeName">
+        <label for="colorName">Color Name: </label>
+        <input type="text" name="colorName" id="colorName">
+        <label for="supplierName">Supplier Name: </label>
+        <input type="text" name="supplierName" id="supplierName">
+        <label for="warehouseLocation">Warehouse Location: </label>
+        <input type="text" name="warehouseLocation" id="warehouseLocation">
+        <button type="submit">Submit</button>
+    </form>
+    
+    <a href="/">Back to home</a>

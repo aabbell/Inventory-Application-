@@ -19,3 +19,32 @@ exports.getAllProducts = async (req, res) => {
         res.status(500).send(err.message)
     }
 }
+
+exports.productCreateGet = async(req, res) => {
+    const categories = (await pool.query('SELECT * FROM category')).rows;
+    const sizes = (await pool.query('SELECT * FROM size')).rows;
+    const colors = (await pool.query('SELECT * FROM color')).rows;
+    const suppliers = (await pool.query('SELECT * FROM supplier')).rows;
+    const warehouses = (await pool.query('SELECT * FROM warehouse')).rows;
+    res.render("createProduct", {
+        title: "Create product",
+        product: {},
+        categories,
+        sizes,
+        colors,
+        suppliers,
+        warehouses,
+    })
+}
+
+exports.productCreatePost = async(req, res) => {
+    const {productName, productDescription, 
+        categoryName ,sizeName ,colorName ,supplierName ,
+        warehouseLocation} = req.body
+    await pool.query(`INSERT INTO product (productName, productDescription, 
+        categoryName, sizeName, colorName, supplierName, warehouseLocation, quantity)
+    VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)`,[productName,productDescription,categoryName,
+    sizeName,colorName,supplierName,warehouseLocation])
+    res.redirect('/')
+    
+}
