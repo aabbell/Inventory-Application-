@@ -1,0 +1,15 @@
+<h1>Product List</h1>
+<ul>
+  <% products.forEach(product => { %>
+    <li>
+      <strong><%= product.name %></strong> - 
+      <%= product.description %><br>
+      Category: <%= product.category_name %> | 
+      Size: <%= product.size_name %> | 
+      Color: <%= product.color_name %> | 
+      Supplier: <%= product.supplier_name %> | 
+      Warehouse: <%= product.warehouse_location %> <br>
+      Quantity: <%= product.quantity %> | Price: $<%= product.price %>
+    </li>
+  <% }); %>
+</ul>
