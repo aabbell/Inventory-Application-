@@ -51,4 +51,16 @@ exports.productCreatePost = async (req, res) => {
         console.error('Insert error:', err.message)
         res.err(500).send('Database insert error: ' + err.message)
     }
-        }
+}
+
+exports.productDeletePost = async (req, res) => {
+    try{
+        const {id} = req.params
+        await pool.query('DELETE FROM product WHERE id = $1',[id])
+        res.redirect('/')
+    }catch(err){
+        console.error('Delete error: ',err.message)
+        res.status(500).send('Database delete error:' + err.message)
+    }
+}
+

@@ -8,6 +8,10 @@
       Category: <%= product.category_name %>
       Quantity: <%= product.quantity %>
       Price: $<%= product.price %>
+
+      <form action="/<%= product.id %>/delete" method="post">
+        <button type="submit">DELETE</button>
+      </form>
     </li>
   <% }); %>
 </ul>

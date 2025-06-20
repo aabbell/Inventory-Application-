@@ -22,3 +22,14 @@ exports.categoryCreatePost = async(req, res) => {
     await pool.query(`INSERT INTO category (name, description) VALUES ($1, $2)`, [name, description])
     res.redirect('/categories')
 }
+
+exports.categoryDeletePost = async(req,res) => {
+    try{
+        const {id} = req.params
+    await pool.query('DELETE FROM category WHERE id = $1',[id])
+    }catch{
+        console.error("Delete error" + err.message)
+        res.status(500).send('Database delete error: '+ err.message)
+    }
+    
+}

@@ -3,6 +3,9 @@
   <% categories.forEach(category => { %>
     <li>
       <strong><%= category.name %></strong> - <%= category.description %>
+      <form action="/categories/<%= category.id %>/delete" method="post">
+        <button type="submit">DELETE</button>
+      </form>
       
     </li>
   <% }); %>
