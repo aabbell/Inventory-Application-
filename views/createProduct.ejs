@@ -1,20 +1,29 @@
 <h1><%= title %></h1>
-  <!--   <%- include("partials/errors.ejs") %> -->
-    <form action="/create" method="post">
-        <label for="productName">Product Name: </label>
-        <input type="text" name="productName" id="productName" required>
-        <label for="productDescription">Product Description: </label>
-        <input type="text" name="productDescription" id="productDescription" required>
-        <label for="categoryName">Category Name: </label>
-        <input type="text" name="categoryName" id="categoryName" required>
-        <label for="sizeName">Size Name: </label>
-        <input type="text" name="sizeName" id="sizeName">
-        <label for="colorName">Color Name: </label>
-        <input type="text" name="colorName" id="colorName">
-        <label for="supplierName">Supplier Name: </label>
-        <input type="text" name="supplierName" id="supplierName">
-        <label for="warehouseLocation">Warehouse Location: </label>
-        <input type="text" name="warehouseLocation" id="warehouseLocation">
+ 
+    <form action="/newproduct" method="POST">
+
+        <label for="name">Product Name: </label>
+        <input type="text" name="name" id="name" required>
+
+        
+
+        <label for="description">Product Description: </label>
+        <input type="text" name="description" id="description" required>
+
+        <label for="quantity">Quantity: </label>
+        <input type="number" name="quantity" id="quantity" required>
+
+        <label for="price" step="0.01">Price: </label>
+        <input type="number" name="price" id="price">
+
+        <label for="category_id">Category: </label>
+        <select name="category_id" id="category_id" required>
+             <% categories.forEach(category => {%>
+                <option value="<%= category.id %>"<%= category.name %></option>
+             <% }) %>
+        </select>
+        
+
         <button type="submit">Submit</button>
     </form>
     
