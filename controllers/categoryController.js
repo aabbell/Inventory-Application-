@@ -12,12 +12,13 @@ exports.getAllCategories = async (req ,res) => {
 
 exports.categoryCreateGet = async(req, res) => {
     res.render('createCategory',{
-        title: "create Category",
-        category: {}})
+        title: "Create Category",
+        category: {}
+    })
 }
 
 exports.categoryCreatePost = async(req, res) => {
-    const [name, description] = req.body
-    await pool.query(`INSERT INTO category (name, description) VALUES ($1, $2)` [name, description])
+    const {name, description}  = req.body
+    await pool.query(`INSERT INTO category (name, description) VALUES ($1, $2)`, [name, description])
     res.redirect('/categories')
 }

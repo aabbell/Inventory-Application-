@@ -2,16 +2,14 @@
 <ul>
   <% products.forEach(product => { %>
     <li>
-      <strong><%= product.name %></strong> - 
+      <strong><%= product.name %></strong>
       <%= product.description %><br>
-      Category: <%= product.category_name %> | 
-      Size: <%= product.size_name %> | 
-      Color: <%= product.color_name %> | 
-      Supplier: <%= product.supplier_name %> | 
-      Warehouse: <%= product.warehouse_location %> <br>
+      Quantity: <%= product.quantity %>
+      Category: <%= product.category_name %>
+      Quantity: <%= product.quantity %>
       Price: $<%= product.price %>
     </li>
   <% }); %>
 </ul>
 <a href="/newproduct">Create products</a>
-<a href="/newcategories">Create Categories</a>
+<a href="/categories">Go To Categories</a>
